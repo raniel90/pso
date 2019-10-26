@@ -12,8 +12,8 @@ c1 = 2.05
 c2 = 2.05
 r1 = 0.25
 r2 = 0.25
-n_iterations = 1000
-target_error = 1e-10 # stop condition
+n_iterations = 10000
+target_error = 1e-10
 n_particles = 30
 dimensions = 30
 particles_vector = []
@@ -59,8 +59,8 @@ class Space():
         return total
 
     def fitness(self, particle):
-        #f = self.sphere(particle.position-target_position)
-        f = self.rastrigin(particle.position - target_position)
+        f = self.sphere(particle.position-target_position)
+        # f = self.rastrigin(particle.position - target_position)
         return f
 
     def update_pbest_gbest(self):
@@ -115,3 +115,5 @@ def main():
     print("The best solution is: ", search_space.gbest_position, "gbest %.4f"% search_space.gbest_value, " in n_iterations: ", iteration, "target ", search_space.target_position)
     plt.plot(bests_fitness)
     plt.show()
+
+main()
